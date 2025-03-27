@@ -1,9 +1,84 @@
-<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3 Safari/605.1.15" version="26.1.3">
-  <diagram name="Page-1" id="_gxHFo4zjv-uHllI4T4w">
-    <mxGraphModel>
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net">
+  <diagram name="UAE Pass Account Creation Sequence" id="accountCreationSequence">
+    <mxGraphModel dx="1240" dy="570" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+
+        <!-- Lifelines -->
+        <mxCell id="user" value="User" style="shape=umlLifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="40" width="140" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="ui" value="UAE Pass App (UI)" style="shape=umlLifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="180" y="40" width="140" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="scanner" value="Identity Scanner (MRZ)" style="shape=umlLifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="40" width="140" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="backend" value="Backend Server" style="shape=umlLifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="500" y="40" width="140" height="360" as="geometry" />
+        </mxCell>
+        <mxCell id="moi" value="Ministry of Interior" style="shape=umlLifeline;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="40" width="140" height="360" as="geometry" />
+        </mxCell>
+
+        <!-- Messages -->
+        <mxCell id="msg1" value="Select Language" style="endArrow=block;html=1;entryX=0.5;entryY=0;exitX=0.5;exitY=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg2" value="Show Intro & Continue" style="endArrow=block;html=1;" edge="1" parent="1" source="ui" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg3" value="Create Account Selected" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg4" value="Accept Terms & Conditions" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg5" value="Select Resident/Visitor" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg6" value="Scan ID (if ready)" style="endArrow=block;html=1;" edge="1" parent="1" source="ui" target="scanner">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg7" value="Send ID Data" style="endArrow=block;html=1;" edge="1" parent="1" source="scanner" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg8" value="ID Exists? SOP1/SOP3 Check" style="endArrow=block;html=1;" edge="1" parent="1" source="backend" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg9" value="Enter Name (if no scan)" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg10" value="Enter Mobile/Email" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg11" value="Check Email/Mobile Exists" style="endArrow=block;html=1;" edge="1" parent="1" source="ui" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg12" value="Send OTP to Mobile/Email" style="endArrow=block;html=1;" edge="1" parent="1" source="backend" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg13" value="User Enters OTP" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg14" value="Create Account" style="endArrow=block;html=1;" edge="1" parent="1" source="ui" target="backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg15" value="Start Face Verification" style="endArrow=block;html=1;" edge="1" parent="1" source="ui" target="moi">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg16" value="Face Verified" style="endArrow=block;html=1;" edge="1" parent="1" source="moi" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg17" value="Set Signing Password" style="endArrow=block;html=1;" edge="1" parent="1" source="user" target="ui">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="msg18" value="Go to PIN Creation → Home" style="endArrow=block;html=1;" edge="1" parent="1" source="ui" target="user">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
       </root>
     </mxGraphModel>
   </diagram>
